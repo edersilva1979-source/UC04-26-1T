@@ -75,12 +75,12 @@ O construtor deverá receber quatro informações:
 Use os tipos corretos para cada informação.
 
 ```typescript
-constructor(
+
   public nome: string,
   public pontos: number,
   public golsMarcados: number,
   public golsSofridos: number
-) {}
+
 ```
 
 ## Explicação rápida
@@ -113,9 +113,7 @@ Exemplo:
 Código esperado:
 
 ```typescript
-saldoGols(): number {
-  return this.golsMarcados - this.golsSofridos;
-}
+
 ```
 
 ---
@@ -135,17 +133,8 @@ Regras:
 Código esperado:
 
 ```typescript
-situacaoGrupo(): string {
-  if (this.pontos >= 6) {
-    return "Classificada";
-  }
 
-  if (this.pontos >= 3) {
-    return "Ainda tem chance";
-  }
 
-  return "Eliminada";
-}
 ```
 
 ---
@@ -161,71 +150,11 @@ Ele não precisa retornar nenhum valor, apenas exibir os dados.
 Código esperado:
 
 ```typescript
-exibirResumo(): void {
-  console.log("================================");
-  console.log(`Seleção: ${this.nome}`);
-  console.log(`Pontos: ${this.pontos}`);
-  console.log(`Gols Marcados: ${this.golsMarcados}`);
-  console.log(`Gols Sofridos: ${this.golsSofridos}`);
-  console.log(`Saldo de Gols: ${this.saldoGols()}`);
-  console.log(`Situação: ${this.situacaoGrupo()}`);
-  console.log("================================");
-}
+
 ```
 
 ---
 
-# Código completo do exercício 🏟️
-
-Crie um arquivo chamado `index.ts` e cole o código abaixo:
-
-```typescript
-class Selecao {
-  constructor(
-    public nome: string,
-    public pontos: number,
-    public golsMarcados: number,
-    public golsSofridos: number
-  ) {}
-
-  saldoGols(): number {
-    return this.golsMarcados - this.golsSofridos;
-  }
-
-  situacaoGrupo(): string {
-    if (this.pontos >= 6) {
-      return "Classificada";
-    }
-
-    if (this.pontos >= 3) {
-      return "Ainda tem chance";
-    }
-
-    return "Eliminada";
-  }
-
-  exibirResumo(): void {
-    console.log("================================");
-    console.log(`Seleção: ${this.nome}`);
-    console.log(`Pontos: ${this.pontos}`);
-    console.log(`Gols Marcados: ${this.golsMarcados}`);
-    console.log(`Gols Sofridos: ${this.golsSofridos}`);
-    console.log(`Saldo de Gols: ${this.saldoGols()}`);
-    console.log(`Situação: ${this.situacaoGrupo()}`);
-    console.log("================================");
-  }
-}
-
-const brasil = new Selecao("Brasil", 6, 5, 1);
-const argentina = new Selecao("Argentina", 4, 3, 2);
-const alemanha = new Selecao("Alemanha", 2, 2, 4);
-const japao = new Selecao("Japão", 3, 4, 4);
-
-brasil.exibirResumo();
-argentina.exibirResumo();
-alemanha.exibirResumo();
-japao.exibirResumo();
-```
 
 ---
 
