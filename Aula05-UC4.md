@@ -1,5 +1,3 @@
----
-
 # 🧩 Aula05 - Agregação: Quando Objetos Trabalham em Equipe
 
 Olá novamente! 👋
