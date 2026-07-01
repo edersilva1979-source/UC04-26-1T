@@ -4,7 +4,7 @@
 
 Olá novamente! 👋
 
-Na parte anterior nós aprendemos o primeiro relacionamento entre objetos: **Associação**.
+Na parte anterior nós aprendemos o primeiro relacionamento entre objetos: **Associação**
 
 Agora vamos dar mais um passo.
 
