@@ -429,16 +429,3 @@ Ao compreender esses conceitos, você estará programando como desenvolvedores p
 
 ---
 
-# 🚀 Preparando o Próximo Assunto
-
-Na próxima parte da aula vamos estudar o relacionamento mais simples da Orientação a Objetos.
-
-Ele recebe um nome bastante intuitivo.
-
-## Associação
-
-É por ele que praticamente todo sistema começa.
-
-Vamos entender como dois objetos podem "conhecer" um ao outro sem depender completamente um do outro.
-
-Nos vemos na próxima parte! ☕💻
