@@ -1,5 +1,3 @@
----
-
 # 🦸  Projeto Prático: Liga dos Heróis 2.0
 
 Chegou a hora de construir nosso primeiro sistema realmente orientado a objetos.
