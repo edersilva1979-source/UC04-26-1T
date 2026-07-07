@@ -554,3 +554,583 @@ Você conhecerá dois comandos fundamentais do TypeScript.
 
 Eles são responsáveis por fazer as classes "conversarem" entre si, permitindo construir projetos organizados e reutilizáveis.
 
+
+# 📂 Aula  - Organização de Projetos em TypeScript
+
+## Parte 1 - Bloco 2B.1
+
+# 📤📥 Compartilhando Classes com `export` e `import`
+
+---
+
+Na aula anterior organizamos nosso projeto.
+
+Criamos a pasta `src`.
+
+Criamos um arquivo para cada classe.
+
+Nosso projeto ficou parecido com este.
+
+```text
+LocadoraGames
+
+│
+
+├── src
+
+│
+
+│     ├── Cliente.ts
+
+│     ├── Game.ts
+
+│     ├── Locacao.ts
+
+│     └── main.ts
+
+│
+
+├── package.json
+
+└── tsconfig.json
+```
+
+Até aqui tudo está funcionando.
+
+Mas surgiu um novo problema.
+
+---
+
+# 🤔 Como uma Classe Encontra a Outra?
+
+Imagine esta situação.
+
+Você criou a classe:
+
+```text
+Cliente.ts
+```
+
+E dentro dela escreveu todo o código do cliente.
+
+Depois criou outra classe.
+
+```text
+Locacao.ts
+```
+
+Agora pense comigo.
+
+Como a classe **Locacao** vai utilizar um objeto da classe **Cliente**?
+
+Ela simplesmente sabe onde ele está?
+
+A resposta é:
+
+❌ Não.
+
+Cada arquivo conhece apenas o próprio conteúdo.
+
+Se quisermos utilizar uma classe criada em outro arquivo, precisamos avisar ao TypeScript.
+
+É exatamente para isso que existem os comandos:
+
+📤 `export`
+
+📥 `import`
+
+---
+
+# 📖 O Que é um Módulo?
+
+Antes de aprender esses comandos, quero explicar uma palavra muito importante.
+
+## Módulo
+
+Um módulo é simplesmente um arquivo que pode compartilhar código com outros arquivos.
+
+Em outras palavras.
+
+Quando criamos um arquivo.
+
+```text
+Cliente.ts
+```
+
+Esse arquivo pode se tornar um módulo.
+
+Basta permitir que outras classes utilizem aquilo que existe dentro dele.
+
+---
+
+# 🏠 Uma Comparação Bem Simples
+
+Imagine que você mora em uma casa.
+
+Cada quarto possui uma porta.
+
+Se a porta permanecer fechada.
+
+Ninguém consegue entrar.
+
+Agora imagine que você abre essa porta.
+
+As outras pessoas podem acessar aquele ambiente.
+
+O comando:
+
+```typescript
+export
+```
+
+Faz exatamente isso.
+
+Ele abre a porta da classe.
+
+---
+
+# 📦 O Que Faz o `export`?
+
+Sempre que escrevemos.
+
+```typescript
+export
+```
+
+Estamos dizendo ao TypeScript:
+
+> "Esta classe pode ser utilizada por outros arquivos."
+
+É só isso.
+
+Não existe nenhum segredo.
+
+---
+
+# 💻 Primeiro Exemplo
+
+Imagine a classe Cliente.
+
+```typescript
+export class Cliente {
+
+    constructor(
+
+        public nome:string,
+
+        public idade:number
+
+    ){}
+
+}
+```
+
+Observe a primeira palavra.
+
+```typescript
+export
+```
+
+Ela permite que outras partes do sistema utilizem essa classe.
+
+---
+
+# 🎮 Exemplo com Minecraft
+
+Imagine o arquivo.
+
+```text
+Espada.ts
+```
+
+Dentro dele existe.
+
+```typescript
+export class Espada{
+
+}
+```
+
+Agora qualquer outro arquivo poderá utilizar a classe Espada.
+
+Sem o `export`...
+
+Ela ficará "presa" naquele arquivo.
+
+---
+
+# 🦸 Exemplo com Liga dos Heróis
+
+Arquivo.
+
+```text
+Heroi.ts
+```
+
+```typescript
+export class Heroi{
+
+}
+```
+
+Agora imagine outro arquivo.
+
+```text
+Equipe.ts
+```
+
+A equipe poderá utilizar a classe Heroi.
+
+Mas ainda falta um passo.
+
+---
+
+# 📥 O Que Faz o `import`?
+
+O `export` abriu a porta.
+
+Agora precisamos entrar.
+
+É exatamente isso que faz o comando.
+
+```typescript
+import
+```
+
+Ele traz uma classe de outro arquivo para dentro do arquivo atual.
+
+Pense nele como um convite.
+
+> "Venha trabalhar comigo."
+
+---
+
+# 📖 Uma Analogia
+
+Imagine uma biblioteca.
+
+Existe um livro de Matemática.
+
+Você quer utilizá-lo.
+
+Primeiro.
+
+O livro precisa existir.
+
+Depois.
+
+Você precisa pegá-lo na estante.
+
+Na programação acontece a mesma coisa.
+
+Primeiro.
+
+A classe precisa ser exportada.
+
+Depois.
+
+Ela precisa ser importada.
+
+---
+
+# 💻 Primeiro `import`
+
+Imagine o arquivo.
+
+```text
+Cliente.ts
+```
+
+```typescript
+export class Cliente{
+
+}
+```
+
+Agora estamos dentro de outro arquivo.
+
+```text
+Locacao.ts
+```
+
+Para utilizar Cliente fazemos.
+
+```typescript
+import { Cliente } from "./Cliente";
+```
+
+Pronto.
+
+Agora a classe Cliente já pode ser utilizada.
+
+---
+
+# 📚 Vamos Entender Cada Parte
+
+Observe novamente.
+
+```typescript
+import { Cliente } from "./Cliente";
+```
+
+Vamos separar.
+
+### import
+
+Significa.
+
+```text
+Trazer
+```
+
+---
+
+### Cliente
+
+É o nome da classe.
+
+---
+
+### from
+
+Significa.
+
+```text
+Vindo de...
+```
+
+---
+
+### "./Cliente"
+
+É o arquivo onde a classe está.
+
+Observe.
+
+Não colocamos:
+
+```text
+Cliente.ts
+```
+
+O TypeScript já entende automaticamente a extensão.
+
+---
+
+# 🧠 Pensando Como Programador
+
+Sempre faça estas perguntas.
+
+A classe está em outro arquivo?
+
+↓
+
+Sim.
+
+Então preciso utilizar:
+
+```typescript
+import
+```
+
+---
+
+Minha classe será utilizada em outro arquivo?
+
+↓
+
+Sim.
+
+Então preciso utilizar:
+
+```typescript
+export
+```
+
+---
+
+# 💡 Dica do Professor
+
+Existe uma frase que gosto muito.
+
+> Exportar é oferecer.
+
+> Importar é utilizar.
+
+Se decorar apenas isso, você já entenderá boa parte do funcionamento dos módulos.
+
+---
+
+# ⚠️ Erro Muito Comum Nº 1
+
+Esquecer o `export`.
+
+Exemplo.
+
+```typescript
+class Cliente{
+
+}
+```
+
+Depois tentar importar.
+
+```typescript
+import { Cliente } from "./Cliente";
+```
+
+Resultado.
+
+❌ Erro.
+
+Porque a classe nunca foi exportada.
+
+---
+
+# ⚠️ Erro Muito Comum Nº 2
+
+Escrever o nome errado.
+
+Arquivo.
+
+```text
+Cliente.ts
+```
+
+Importação.
+
+```typescript
+import { Clientes } from "./Cliente";
+```
+
+Observe.
+
+Existe um "s" no final.
+
+Isso gera erro.
+
+Os nomes precisam ser exatamente iguais.
+
+---
+
+# ⚠️ Erro Muito Comum Nº 3
+
+Importar do arquivo errado.
+
+```typescript
+import { Cliente } from "./Produto";
+```
+
+O TypeScript procurará Cliente dentro do arquivo Produto.
+
+Como ela não existe.
+
+O código apresentará erro.
+
+---
+
+# 🎮 Exemplo Completo
+
+Imagine nosso projeto.
+
+```text
+src
+
+│
+
+├── Cliente.ts
+
+├── Game.ts
+
+├── Locacao.ts
+
+└── main.ts
+```
+
+Cada arquivo possui sua própria responsabilidade.
+
+O Cliente fica em Cliente.ts.
+
+O Game fica em Game.ts.
+
+A Locação fica em Locacao.ts.
+
+Depois utilizaremos `import` para conectar tudo isso.
+
+---
+
+# 🧠 Exercício 1
+
+Responda mentalmente.
+
+Qual classe precisa de `export`?
+
+```text
+Cliente.ts
+```
+
+✅ Sim.
+
+---
+
+```text
+Game.ts
+```
+
+✅ Sim.
+
+---
+
+```text
+Locacao.ts
+```
+
+✅ Sim.
+
+---
+
+# 🧠 Exercício 2
+
+Complete a frase.
+
+O comando.
+
+```typescript
+export
+```
+
+Serve para _______________________________.
+
+---
+
+O comando.
+
+```typescript
+import
+```
+
+Serve para _______________________________.
+
+---
+
+# 🚀 Preparando o Próximo Bloco
+
+Agora você já sabe:
+
+✅ O que é um módulo.
+
+✅ O que faz o `export`.
+
+✅ O que faz o `import`.
+
+No próximo bloco vamos construir nosso primeiro projeto profissional.
+
+Separaremos as classes:
+
+📂 Cliente
+
+📂 Game
+
+📂 Locação
+
+E faremos todas elas conversarem entre si utilizando `import` e `export`, exatamente como acontece em sistemas desenvolvidos no mercado.
