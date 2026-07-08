@@ -37,11 +37,14 @@ Conecte-se ao banco `banco_app`.
 ``` sql
 CREATE TABLE cliente (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    cpf VARCHAR(14) UNIQUE NOT NULL,
-    telefone VARCHAR(20),
-    email VARCHAR(100)
+    nome ......
+    cpf ......
+    telefone .....
+    email .....
 );
+
+OBS.: CPF é Unico, e não pode ser vazio.
+Email é Unico.
 ```
 
 ### Tabela conta
@@ -49,11 +52,16 @@ CREATE TABLE cliente (
 ``` sql
 CREATE TABLE conta (
     id SERIAL PRIMARY KEY,
-    numero_conta VARCHAR(20) UNIQUE NOT NULL,
-    agencia VARCHAR(10) NOT NULL,
-    saldo NUMERIC(10,2) NOT NULL,
-    tipo_conta VARCHAR(30) NOT NULL
+    numero_conta ........
+    agencia .........
+    saldo ..........
+    tipo_conta ........
 );
+
+OBS.: Numero_conta é único e não pode ser vazio
+agencia não pode ser vazio
+saldo não pode ser vazio
+tipo_conta não pode ser vazio
 ```
 
 ## 3. Criando o projeto Java
@@ -102,26 +110,12 @@ public class Conexao {
 
     public static Connection conectar() {
 
-        Connection conexao = null;
+   .
+   .
+   .
+   .
+   .
 
-        String url = "jdbc:postgresql://localhost:5432/banco_app";
-        String usuario = "postgres";
-        String senha = "sua_senha_aqui";
-
-        try {
-
-            conexao = DriverManager.getConnection(url, usuario, senha);
-            System.out.println("Conexão realizada com sucesso!");
-
-        } catch (SQLException erro) {
-
-            System.out.println("Erro ao conectar.");
-            System.out.println(erro.getMessage());
-
-        }
-
-        return conexao;
-    }
 }
 ```
 
@@ -136,24 +130,12 @@ import java.sql.SQLException;
 
 public class TesteConexao {
 
-    public static void main(String[] args) {
-
-        Connection conexao = Conexao.conectar();
-
-        if (conexao != null) {
-
-            System.out.println("Teste realizado com sucesso!");
-
-            try {
-                conexao.close();
-                System.out.println("Conexão encerrada.");
-            } catch (SQLException erro) {
-                System.out.println(erro.getMessage());
-            }
-
-        }
-
-    }
+.
+.
+.
+.
+.
+.
 
 }
 ```
@@ -190,10 +172,11 @@ CREATE DATABASE zoologico_app;
 ``` sql
 CREATE TABLE animal (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(100),
-    especie VARCHAR(100),
-    idade INT,
-    peso NUMERIC(10,2)
+    nome ........
+    especie .......
+    idade .......
+    peso .......
+    
 );
 ```
 
@@ -202,11 +185,14 @@ CREATE TABLE animal (
 ``` sql
 CREATE TABLE cuidador (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(100),
-    cpf VARCHAR(14) UNIQUE,
-    telefone VARCHAR(20),
-    turno VARCHAR(30)
+    nome ......,
+    cpf .......
+    telefone .........
+    turno ......
 );
+
+
+OBS.: CPF é unico e não pode ser vazio
 ```
 
 ### Recinto
@@ -214,10 +200,10 @@ CREATE TABLE cuidador (
 ``` sql
 CREATE TABLE recinto (
     id SERIAL PRIMARY KEY,
-    nome VARCHAR(100),
-    tipo VARCHAR(50),
-    capacidade INT,
-    localizacao VARCHAR(100)
+    nome .......
+    tipo ......
+    capacidade ......
+    localizacao ........
 );
 ```
 
@@ -261,28 +247,11 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-    public static Connection conectar() {
-
-        Connection conexao = null;
-
-        String url = "jdbc:postgresql://localhost:5432/zoologico_app";
-        String usuario = "postgres";
-        String senha = "sua_senha_aqui";
-
-        try {
-
-            conexao = DriverManager.getConnection(url, usuario, senha);
-            System.out.println("Conexão realizada com sucesso!");
-
-        } catch (SQLException erro) {
-
-            System.out.println("Erro ao conectar.");
-            System.out.println(erro.getMessage());
-
-        }
-
-        return conexao;
-    }
+    .
+    .
+    .
+    .
+    .
 }
 ```
 
@@ -297,33 +266,15 @@ import java.sql.SQLException;
 
 public class TesteConexao {
 
-    public static void main(String[] args) {
-
-        Connection conexao = Conexao.conectar();
-
-        if (conexao != null) {
-
-            System.out.println("Teste realizado com sucesso!");
-
-            try {
-                conexao.close();
-                System.out.println("Conexão encerrada.");
-            } catch (SQLException erro) {
-                System.out.println(erro.getMessage());
-            }
-
-        }
-
-    }
+    .
+    .
+    .
+    .
+    .
+    .
 
 }
 ```
-
-## Desafio
-
-Insira registros manualmente nas três tabelas utilizando comandos
-`INSERT` e execute novamente a aplicação para confirmar que a conexão
-continua funcionando.
 
 ------------------------------------------------------------------------
 
@@ -336,4 +287,4 @@ Antes de executar o projeto, verifique:
 -   Nome do banco igual ao utilizado na classe `Conexao`.
 -   Usuário e senha corretos.
 -   Driver JDBC adicionado ao projeto.
--   Porta 5432 configurada corretamente.
+
