@@ -1628,3 +1628,459 @@ Separaremos as classes:
 📂 Locação
 
 E faremos todas elas conversarem entre si utilizando `import` e `export`, exatamente como acontece em sistemas desenvolvidos no mercado.
+
+
+---
+
+# 📦 Módulo 2 - Construindo Sistemas Profissionais
+
+# 📂 Aula 04 - Organização de Projetos em TypeScript
+
+# 📄 Capítulo  - Criando Nossa Primeira Classe Profissional
+
+---
+
+
+Até agora criamos várias classes durante o curso.
+
+Criamos classes para alunos, produtos, heróis, livros, computadores e jogos.
+
+Todas funcionavam muito bem.
+
+Mas existe uma diferença entre criar uma classe para aprender e criar uma classe para um projeto profissional.
+
+Hoje vamos aprender exatamente essa diferença.
+
+---
+
+# 📖 Como as Empresas Desenvolvem Sistemas?
+
+Imagine que uma empresa possui um sistema com centenas de classes.
+
+Algumas representam clientes.
+
+Outras representam produtos.
+
+Outras representam pedidos.
+
+Cada uma possui sua própria responsabilidade.
+
+É por isso que cada classe fica em um arquivo separado.
+
+Nosso objetivo é seguir exatamente essa organização.
+
+---
+
+# 🎯 Nosso Primeiro Arquivo
+
+Vamos criar o arquivo:
+
+```text
+Cliente.ts
+```
+
+Dentro dele ficará apenas uma classe.
+
+Isso facilita a organização e torna o projeto muito mais fácil de manter.
+
+Nossa estrutura será:
+
+```text
+LocadoraGames
+
+│
+
+├── src
+
+│     ├── Cliente.ts
+
+│     ├── Game.ts
+
+│     ├── Locacao.ts
+
+│     └── main.ts
+```
+
+---
+
+# 📤 Criando a Classe
+
+Agora vamos escrever nossa primeira classe profissional.
+
+```typescript
+export class Cliente {
+
+    constructor(
+
+        public nome: string,
+        public idade: number,
+        public telefone: string
+
+    ) {}
+
+}
+```
+
+Muito simples.
+
+Mas existe bastante coisa acontecendo aqui.
+
+Vamos entender.
+
+---
+
+# 👨‍🏫 O Que Faz o `export`?
+
+A primeira palavra da classe é:
+
+```typescript
+export
+```
+
+Ela permite que essa classe seja utilizada em outros arquivos do projeto.
+
+Imagine que o arquivo `Cliente.ts` é uma sala.
+
+Sem o `export`, a porta permanece fechada.
+
+Com o `export`, outras classes podem entrar e utilizar o cliente.
+
+---
+
+# 📦 O Que é uma Classe?
+
+A classe funciona como uma planta de uma casa.
+
+Ela descreve como o objeto será construído.
+
+No nosso caso, estamos dizendo que todo cliente terá:
+
+* Nome
+* Idade
+* Telefone
+
+Mas nenhum cliente foi criado ainda.
+
+Criamos apenas o modelo.
+
+---
+
+# 🏗️ O Constructor
+
+Observe este trecho.
+
+```typescript
+constructor(
+    public nome: string,
+    public idade: number,
+    public telefone: string
+){}
+```
+
+O **constructor** é executado sempre que criamos um novo objeto.
+
+Ele é responsável por inicializar os dados do cliente.
+
+Sempre que fizermos:
+
+```typescript
+new Cliente(...)
+```
+
+o constructor será chamado automaticamente.
+
+---
+
+# 💡 Entendendo Cada Atributo
+
+Nossa classe possui três atributos.
+
+## Nome
+
+```typescript
+public nome: string
+```
+
+Armazena o nome do cliente.
+
+Exemplo:
+
+```text
+João
+```
+
+---
+
+## Idade
+
+```typescript
+public idade: number
+```
+
+Armazena a idade.
+
+Exemplo:
+
+```text
+28
+```
+
+---
+
+## Telefone
+
+```typescript
+public telefone: string
+```
+
+Armazena o telefone do cliente.
+
+Exemplo:
+
+```text
+(51) 99999-9999
+```
+
+---
+
+# 💻 Criando Nosso Primeiro Objeto
+
+Agora vamos para o arquivo:
+
+```text
+main.ts
+```
+
+Primeiro precisamos importar a classe.
+
+```typescript
+import { Cliente } from "./Cliente";
+```
+
+Depois criamos um objeto.
+
+```typescript
+const cliente1 = new Cliente(
+    "João",
+    28,
+    "(51) 99999-9999"
+);
+```
+
+Neste momento temos um cliente criado na memória.
+
+---
+
+# 📋 Exibindo as Informações
+
+Podemos acessar os atributos.
+
+```typescript
+console.log(cliente1.nome);
+console.log(cliente1.idade);
+console.log(cliente1.telefone);
+```
+
+Resultado.
+
+```text
+João
+
+28
+
+(51) 99999-9999
+```
+
+---
+
+# 🎮 Comparando com um Jogo
+
+Imagine um jogo de futebol.
+
+Existe uma classe:
+
+```text
+Jogador
+```
+
+Cada jogador possui:
+
+* Nome
+* Idade
+* Posição
+
+Depois criamos vários jogadores.
+
+Todos seguem o mesmo modelo.
+
+É exatamente isso que acontece com nossa classe Cliente.
+
+---
+
+# 💡 Dica do Professor
+
+Sempre utilize nomes claros.
+
+Evite escrever:
+
+```typescript
+class C {}
+```
+
+ou
+
+```typescript
+class Dados {}
+```
+
+Prefira nomes como:
+
+* Cliente
+* Produto
+* Funcionario
+* Game
+* Locacao
+
+Assim qualquer desenvolvedor entende rapidamente o código.
+
+---
+
+# ⚠️ Erros Mais Comuns
+
+## Esquecer o `export`
+
+```typescript
+class Cliente {
+
+}
+```
+
+Depois tentar importar.
+
+Resultado:
+
+❌ Erro.
+
+---
+
+## Escrever o nome errado
+
+Arquivo.
+
+```text
+Cliente.ts
+```
+
+Importação.
+
+```typescript
+import { Clientes } from "./Cliente";
+```
+
+Observe o **s**.
+
+Isso gera erro.
+
+---
+
+## Colocar várias classes no mesmo arquivo
+
+```text
+Cliente
+
+Produto
+
+Pedido
+
+Funcionário
+```
+
+Tudo dentro de um único arquivo.
+
+Funciona.
+
+Mas não é uma boa prática.
+
+---
+
+# 🧠 Exercício 1
+
+Crie uma classe chamada:
+
+```text
+Funcionario
+```
+
+Ela deverá possuir:
+
+* Nome
+* Cargo
+* Salário
+
+---
+
+# 🧠 Exercício 2
+
+Crie dois funcionários diferentes.
+
+Mostre os dados utilizando `console.log()`.
+
+---
+
+# 🧠 Exercício 3
+
+Crie uma classe chamada:
+
+```text
+Fornecedor
+```
+
+Com os atributos:
+
+* Nome
+* Cidade
+* Telefone
+
+---
+
+# 🏆 Desafio
+
+Crie uma classe chamada:
+
+```text
+Empresa
+```
+
+Ela deverá possuir:
+
+* Nome
+* Cidade
+* Telefone
+
+Depois instancie um objeto da classe Empresa e exiba todas as informações no terminal.
+
+---
+
+# 📚 Resumo
+
+Nesta aula aprendemos:
+
+✅ Como criar uma classe profissional.
+
+✅ O papel do `export`.
+
+✅ O funcionamento do constructor.
+
+✅ Como criar objetos.
+
+✅ Como importar uma classe.
+
+✅ Como organizar um projeto em vários arquivos.
+
+Parabéns! 🎉
+
+A partir deste momento você começou a desenvolver projetos da mesma forma que um desenvolvedor profissional.
+
+Na próxima aula evoluiremos essa classe, adicionando métodos e fazendo as classes conversarem entre si dentro do projeto da **Locadora de Games**.
+
+
