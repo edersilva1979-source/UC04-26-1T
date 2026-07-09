@@ -1,6 +1,6 @@
 # 📦 Módulo 2 - Construindo Sistemas Profissionais
 
-# 📂 Aula 04 - Organização de Projetos em TypeScript
+# 📂 Aula 09 - Organização de Projetos em TypeScript
 
 # 📄 Capítulo 5 - Introdução ao MVC na Locadora de Games
 
