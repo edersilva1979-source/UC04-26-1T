@@ -16,7 +16,7 @@ Ainda não utilizaremos:
 
 Nosso objetivo será entender como as classes ficam separadas e como cada parte do MVC possui uma responsabilidade.
 
-Neste primeiro exemplo, o sistema armazenará apenas:
+Neste exemplo, o sistema armazenará apenas:
 
 ```text
 Um cliente
