@@ -1,6 +1,6 @@
 # Aula Prática: Sistema de Pedidos de uma Loja de Ferragens com MVC 🔩
 
-Nesta etapa, eu vou organizar um sistema de pedidos utilizando o padrão MVC.
+Nesta etapa, vamos organizar um sistema de pedidos utilizando o padrão MVC.
 
 Ainda não utilizaremos:
 
@@ -181,7 +181,7 @@ export class Produto {
 
 # 5. Entendendo a classe Produto
 
-Nesta classe eu represento um produto vendido pela loja.
+Nesta classe representamos um produto vendido pela loja.
 
 Cada produto possui:
 
@@ -219,7 +219,7 @@ private quantidadeEstoque: number
 
 Isso significa que ele não deve ser alterado diretamente fora da classe.
 
-Eu protejo esse atributo porque o estoque deve mudar apenas através dos métodos corretos.
+Protejemos esse atributo porque o estoque deve mudar apenas através dos métodos corretos.
 
 # 6. Método consultarEstoque
 
@@ -281,7 +281,7 @@ retirarEstoque(
 }
 ```
 
-Primeiro eu verifico se existe estoque suficiente.
+Primeiro verificamos se existe estoque suficiente.
 
 ```typescript
 if (!this.possuiEstoque(quantidade))
@@ -293,7 +293,7 @@ Se não existir estoque suficiente, o método retorna `false`.
 return false;
 ```
 
-Quando existe estoque, eu retiro a quantidade vendida.
+Quando existe estoque, retiramos a quantidade vendida.
 
 ```typescript
 this.quantidadeEstoque
@@ -502,7 +502,7 @@ finalizar(): boolean {
 }
 ```
 
-Primeiro eu verifico se o pedido já foi finalizado ou cancelado.
+Primeiro verificamos se o pedido já foi finalizado ou cancelado.
 
 Se uma dessas situações for verdadeira, o método retorna `false`.
 
