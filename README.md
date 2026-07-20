@@ -253,25 +253,7 @@ Ao final da disciplina, o estudante será capaz de modelar problemas do mundo re
 
 ---
 
-# 📂 Estrutura do Repositório
 
-```text
-📁 ProgramacaoOrientadaObjetos
-│
-├── Aula01_IntroducaoPOO
-├── Aula02_TiposDeDados
-├── Aula03_ClassesObjetos
-├── Aula04_AtributosMetodos
-├── Aula05_Construtores
-├── Aula06_Encapsulamento
-├── Aula07_Heranca
-├── Aula08_Polimorfismo
-├── Aula09_Interfaces
-├── Projetos
-└── Exercicios
-```
-
----
 
 # 🌟 Curiosidade
 
